@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="background_primary">@color/white</color>
+    <color name="background_secondary">@color/slate_50</color>
+    <color name="text_primary">@color/slate_900</color>
+    <color name="text_secondary">@color/slate_600</color>
+    <color name="text_disabled">@color/slate_400</color>
+    <color name="divider">@color/slate_200</color>
+
+    <color name="slate_50">#FFF8FAFC</color>
+    <color name="slate_100">#FFF1F5F9</color>
+    <color name="slate_200">#FFE2E8F0</color>
+    <color name="slate_300">#FFCBD5E1</color>
+    <color name="slate_400">#FF94A3B8</color>
+    <color name="slate_500">#FF64748B</color>
+    <color name="slate_600">#FF475569</color>
+    <color name="slate_700">#FF334155</color>
+    <color name="slate_800">#FF1E293B</color>
+    <color name="slate_900">#FF0F172A</color>
+
+    <color name="gray_50">#FFF9FAFB</color>
+    <color name="gray_100">#FFF3F4F6</color>
+    <color name="gray_200">#FFE5E7EB</color>
+    <color name="gray_300">#FFD1D5DB</color>
+    <color name="gray_400">#FF9CA3AF</color>
+    <color name="gray_500">#FF6B7280</color>
+    <color name="gray_600">#FF4B5563</color>
+    <color name="gray_700">#FF374151</color>
+    <color name="gray_800">#FF1F2937</color>
+    <color name="gray_900">#FF111827</color>
+
+    <color name="sky_50">#FFE0F2FE</color>
+    <color name="sky_100">#FFBAE6FD</color>
+    <color name="sky_200">#FF7DD3FC</color>
+    <color name="sky_300">#FF38BDF8</color>
+    <color name="sky_400">#FF0EA5E9</color>
+    <color name="sky_500">#FF0284C7</color>
+    <color name="sky_600">#FF0369A1</color>
+    <color name="sky_700">#FF0369A1</color>
+    <color name="sky_800">#FF075985</color>
+    <color name="sky_900">#FF0C4A6E</color>
+
+    <color name="primary_50">@color/sky_50</color>
+    <color name="primary_100">@color/sky_100</color>
+    <color name="primary_200">@color/sky_200</color>
+    <color name="primary_300">@color/sky_300</color>
+    <color name="primary_400">@color/sky_400</color>
+    <color name="primary_500">@color/sky_500</color>
+    <color name="primary_600">@color/sky_600</color>
+    <color name="primary_700">@color/sky_700</color>
+    <color name="primary_800">@color/sky_800</color>
+    <color name="primary_900">@color/sky_900</color>
+
+    <color name="blue_50">#FFEFF6FF</color>
+    <color name="blue_100">#FFDBEAFE</color>
+    <color name="blue_200">#FFBFDBFE</color>
+    <color name="blue_300">#FF93C5FD</color>
+    <color name="blue_400">#FF60A5FA</color>
+    <color name="blue_500">#FF3B82F6</color>
+    <color name="blue_600">#FF2563EB</color>
+    <color name="blue_700">#FF1D4ED8</color>
+    <color name="blue_800">#FF1E40AF</color>
+    <color name="blue_900">#FF1E3A8A</color>
+
+    <color name="red_50">#FFFEF2F2</color>
+    <color name="red_100">#FFFEE2E2</color>
+    <color name="red_200">#FFFECACA</color>
+    <color name="red_300">#FFFCA5A5</color>
+    <color name="red_400">#FFF87171</color>
+    <color name="red_500">#FFEF4444</color>
+    <color name="red_600">#FFDC2626</color>
+    <color name="red_700">#FFB91C1C</color>
+    <color name="red_800">#FF991B1B</color>
+    <color name="red_900">#FF7F1D1D</color>
+
+    <color name="error_main">@color/red_500</color>
+    <color name="error_light">@color/red_100</color>
+
+    <color name="amber_50">#FFFEFBF2</color>
+    <color name="amber_100">#FFFEF3C7</color>
+    <color name="amber_200">#FFFDE68A</color>
+    <color name="amber_300">#FFFCD34D</color>
+    <color name="amber_400">#FFFBBF24</color>
+    <color name="amber_500">#FFF59E0B</color>
+    <color name="amber_600">#FFD97706</color>
+    <color name="amber_700">#FFB45309</color>
+    <color name="amber_800">#FF92400E</color>
+    <color name="amber_900">#FF78350F</color>
+
+    <color name="warning_main">@color/amber_500</color>
+    <color name="warning_light">@color/amber_100</color>
+
+    <color name="emerald_50">#FFECFDF5</color>
+    <color name="emerald_100">#FFD1FAE5</color>
+    <color name="emerald_200">#FFA7F3D0</color>
+    <color name="emerald_300">#FF6EE7B7</color>
+    <color name="emerald_400">#FF34D399</color>
+    <color name="emerald_500">#FF10B981</color>
+    <color name="emerald_600">#FF059669</color>
+    <color name="emerald_700">#FF047857</color>
+    <color name="emerald_800">#FF065F46</color>
+    <color name="emerald_900">#FF064E3B</color>
+
+    <color name="success_main">@color/emerald_500</color>
+    <color name="success_light">@color/emerald_100</color>
+
+    <color name="cyan_50">#FFECFEFF</color>
+    <color name="cyan_100">#FFCFFAFE</color>
+    <color name="cyan_200">#FFA5F3FC</color>
+    <color name="cyan_300">#FF67E8F9</color>
+    <color name="cyan_400">#FF22D3EE</color>
+    <color name="cyan_500">#FF06B6D4</color>
+    <color name="cyan_600">#FF0891B2</color>
+    <color name="cyan_700">#FF0E7490</color>
+    <color name="cyan_800">#FF155E75</color>
+    <color name="cyan_900">#FF164E63</color>
+
+    <color name="info_main">@color/cyan_500</color>
+    <color name="info_light">@color/cyan_100</color>
+</resources>

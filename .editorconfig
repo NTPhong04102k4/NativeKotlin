@@ -1,0 +1,8 @@
+[*.{kt,kts}]
+# Sử dụng 4 dấu cách thay vì phím Tab
+indent_size = 4
+insert_final_newline = true
+max_line_length = 120
+
+# Các rule ép buộc từ chính chủ Kotlin/Google Style Guide
+disabled_rules = no-wildcard-imports # Thỉnh thoảng cho phép import .* nếu quá nhiều

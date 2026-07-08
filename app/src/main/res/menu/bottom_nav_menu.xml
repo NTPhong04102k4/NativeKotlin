@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_discovery"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Khám phá" />
+    <item
+        android:id="@+id/nav_schedule"
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="Lịch trình" />
+    <item
+        android:id="@+id/nav_personal"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="Cá nhân" />
+</menu>

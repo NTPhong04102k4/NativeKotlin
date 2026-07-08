@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 1. KHÔNG cho phép hardcode chuỗi chữ (Bắt buộc dùng strings.xml để dễ quản lý) -->
+    <issue id="HardcodedText" severity="error" />
+
+    <!-- 2. ÉP kiểm tra quyền (Permissions) khi gọi các API hệ thống nguy hiểm -->
+    <issue id="MissingPermission" severity="error" />
+
+    <!-- 3. CẢNH BÁO các lỗi rò rỉ bộ nhớ (Memory Leak) phổ biến trong Kotlin Handler/Context -->
+    <issue id="StaticFieldLeak" severity="error" />
+    <issue id="HandlerLeak" severity="error" />
+
+    <!-- 4. HIỆU NĂNG: Cảnh báo nếu lồng quá nhiều tầng Layout gây chậm giật UI -->
+    <issue id="TooManyViews" severity="warning" />
+    <issue id="TooDeepLayout" severity="warning" />
+
+    <!-- 5. TỐI ƯU: Phát hiện các resource (ảnh, màu) thừa không dùng tới để giảm dung lượng file APK -->
+    <issue id="UnusedResources" severity="warning" />
+</resources>

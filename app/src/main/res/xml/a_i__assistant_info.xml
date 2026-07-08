@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:configure="com.example.application_ai_assisstant.widget.AI_AssistantConfigureActivity"
+    android:description="@string/app_widget_description"
+    android:initialKeyguardLayout="@layout/a_i__assistant"
+    android:initialLayout="@layout/a_i__assistant"
+    android:minWidth="40dp"
+    android:minHeight="40dp"
+    android:previewImage="@drawable/example_appwidget_preview"
+    android:previewLayout="@layout/a_i__assistant"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellWidth="1"
+    android:targetCellHeight="1"
+    android:updatePeriodMillis="86400000"
+    android:widgetCategory="home_screen" />

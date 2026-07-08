@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+    HƯỚNG DẪN CÁC TAG VÀ THUỘC TÍNH PHỔ BIẾN TRONG ANDROIDMANIFEST.XML
+
+    1. <manifest>: Gốc của file, định nghĩa namespace.
+       - xmlns:android: Khai báo namespace Android.
+       - package: Tên package định danh của app (thường được quản lý bởi build.gradle).
+
+    2. <uses-permission>: Khai báo quyền ứng dụng cần (Internet, Camera, v.v.).
+       - android:name: Tên quyền (ví dụ: "android.permission.INTERNET").
+
+    3. <application>: Cấu hình các thành phần ứng dụng.
+       - android:allowBackup: Cho phép sao lưu dữ liệu ứng dụng.
+       - android:icon / android:roundIcon: Icon hiển thị của app.
+       - android:label: Tên hiển thị của app (thường lấy từ @string/app_name).
+       - android:theme: Style/Theme chủ đạo của app.
+       - android:name: Tên class kế thừa Application (nếu có custom class).
+       - android:supportsRtl: Hỗ trợ hiển thị từ phải sang trái.
+
+    4. <activity>: Khai báo một màn hình.
+       - android:name: Tên class Activity (bắt đầu bằng dấu chấm nếu cùng package).
+       - android:exported: true nếu Activity có thể được gọi bởi app khác (phải true nếu là màn hình khởi đầu).
+       - android:label: Tiêu đề trên Action Bar.
+       - android:windowSoftInputMode: Cách bàn phím ảo tương tác với UI (adjustResize, adjustPan).
+       - android:screenOrientation: Cố định hướng màn hình (portrait, landscape).
+
+    5. <intent-filter>: Định nghĩa cách hệ thống gọi Activity/Service.
+       - <action android:name="android.intent.action.MAIN" />: Đánh dấu màn hình chính.
+       - <category android:name="android.intent.category.LAUNCHER" />: Đưa icon app ra màn hình chủ.
+
+    6. <service>: Các thành phần chạy ngầm không có UI.
+    7. <receiver>: Nhận các sự kiện hệ thống (Broadcast Receiver).
+    8. <provider>: Chia sẻ dữ liệu giữa các ứng dụng (Content Provider).
+    9. <uses-feature>: Khai báo các tính năng phần cứng cần thiết (Camera, Bluetooth).
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Quyền mạng -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Quyền Thông báo & Báo thức -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+    <!-- Quyền Bluetooth -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+    <!-- Quyền Cuộc gọi & Tin nhắn -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+
+    <!-- Quyền Sinh trắc học -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Application_AI_Assisstant">
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="true"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.App.Starting"
+            android:windowSoftInputMode="adjustResize">
+
+            <!-- Ví dụ: Để LoginActivity làm màn hình khởi chạy -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.scrolling.ScrollingActivity"
+            android:exported="false"
+            android:label="@string/title_activity_scrolling"
+            android:theme="@style/Theme.Application_AI_Assisstant.NoActionBar" />
+
+        <receiver
+            android:name=".widget.AI_Assistant"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/a_i__assistant_info" />
+        </receiver>
+
+        <activity
+            android:name=".widget.AI_AssistantConfigureActivity"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+        <receiver
+            android:name=".receiver.SystemEventReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".receiver.AlarmReceiver"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_settings" />
+
+        <activity
+            android:name=".ui.personal.PersonalActivity"
+            android:exported="false"
+            android:label="Cá nhân" />
+
+        <activity
+            android:name=".ui.discovery.DiscoveryActivity"
+            android:exported="false"
+            android:label="Khám phá" />
+
+        <activity
+            android:name=".ui.schedule.ScheduleActivity"
+            android:exported="false"
+            android:label="Lịch trình" />
+    </application>
+
+</manifest>

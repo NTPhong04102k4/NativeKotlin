@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Application_AI_Assisstant" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/primary_500</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorContainer">@color/primary_50</item>
+        <item name="colorOnContainer">@color/primary_900</item>
+
+        <item name="colorSecondary">@color/cyan_500</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="android:windowBackground">@color/background_primary</item>
+        <item name="colorSurface">@color/background_primary</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/background_secondary</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+
+        <item name="android:statusBarColor">@color/background_primary</item>
+        <item name="android:navigationBarColor">@color/background_primary</item>
+
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="Theme.Application_AI_Assisstant.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Theme cho Splash Screen -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/background_primary</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.Application_AI_Assisstant</item>
+    </style>
+
+    <style name="Theme.Application_AI_Assisstant.AppBarOverlay" parent="ThemeOverlay.Material3.ActionBar" />
+
+    <style name="Theme.Application_AI_Assisstant.PopupOverlay" parent="ThemeOverlay.Material3.DynamicColors.Light" />
+
+    <style name="Theme.Application_AI_Assisstant.AppWidgetContainerParent" parent="android:Theme.DeviceDefault">
+        <item name="appWidgetRadius">16dp</item>
+        <item name="appWidgetInnerRadius">8dp</item>
+    </style>
+
+    <style name="Theme.Application_AI_Assisstant.AppWidgetContainer" parent="Theme.Application_AI_Assisstant.AppWidgetContainerParent">
+        <item name="appWidgetPadding">16dp</item>
+    </style>
+</resources>
