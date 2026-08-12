@@ -3,13 +3,13 @@
     <item
         android:id="@+id/nav_discovery"
         android:icon="@android:drawable/ic_menu_search"
-        android:title="Khám phá" />
+        android:title="@string/nav_discovery" />
     <item
         android:id="@+id/nav_schedule"
         android:icon="@android:drawable/ic_menu_today"
-        android:title="Lịch trình" />
+        android:title="@string/nav_schedule" />
     <item
         android:id="@+id/nav_personal"
         android:icon="@android:drawable/ic_menu_myplaces"
-        android:title="Cá nhân" />
+        android:title="@string/nav_personal" />
 </menu>

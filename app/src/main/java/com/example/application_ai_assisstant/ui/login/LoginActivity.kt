@@ -21,6 +21,7 @@ import com.example.application_ai_assisstant.databinding.ActivityLoginBinding
 import com.example.application_ai_assisstant.R
 
 import androidx.lifecycle.lifecycleScope
+import com.example.application_ai_assisstant.util.AppRouter
 import com.example.application_ai_assisstant.util.NetworkMonitor
 import com.example.application_ai_assisstant.util.BiometricHelper
 import kotlinx.coroutines.launch
@@ -46,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
         lifecycleScope.launch {
             networkMonitor.isConnected.collect { isConnected ->
                 if (!isConnected) {
-                    Toast.makeText(this@LoginActivity, "Mất kết nối mạng!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@LoginActivity, getString(R.string.network_lost), Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -85,16 +86,17 @@ class LoginActivity : AppCompatActivity() {
             val loginResult = it ?: return@Observer
 
             loading?.visibility = View.GONE
-            if (loginResult.error != null) {
-                showLoginFailed(loginResult.error)
-            }
-            if (loginResult.success != null) {
-                updateUiWithUser(loginResult.success)
-            }
-            setResult(RESULT_OK)
 
-            //Complete and destroy login activity once successful
-            finish()
+            // Chỉ đóng màn hình khi đăng nhập THÀNH CÔNG. Trước đây setResult/finish nằm ngoài
+            // nhánh if nên đăng nhập sai cũng thoát luôn LoginActivity.
+            loginResult.error?.let { error ->
+                showLoginFailed(error)
+                return@Observer
+            }
+            loginResult.success?.let { user ->
+                setResult(RESULT_OK)
+                goToHome(user)
+            }
         })
 
         username.afterTextChanged {
@@ -130,15 +132,15 @@ class LoginActivity : AppCompatActivity() {
 
             binding.btnGoogle?.setOnClickListener {
                 // Triển khai Google Login
-                Toast.makeText(this@LoginActivity, "Đang kết nối Google...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LoginActivity, getString(R.string.google_connecting), Toast.LENGTH_SHORT).show()
             }
 
             binding.btnBiometric?.setOnClickListener {
                 biometricHelper.showBiometricPrompt(
-                    "Xác thực",
-                    "Sử dụng vân tay hoặc khuôn mặt",
+                    getString(R.string.biometric_title),
+                    getString(R.string.biometric_subtitle),
                     onSuccess = {
-                        updateUiWithUser(LoggedInUserView("Người dùng Sinh trắc học"))
+                        goToHome(LoggedInUserView(getString(R.string.biometric_user)))
                     },
                     onError = { message ->
                         Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
@@ -148,19 +150,17 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateUiWithUser(model: LoggedInUserView) {
-        val welcome = getString(R.string.welcome)
-        val displayName = model.displayName
-        Toast.makeText(
-            applicationContext,
-            "$welcome $displayName",
-            Toast.LENGTH_LONG
-        ).show()
+    override fun onDestroy() {
+        // NetworkMonitor đăng ký callback vào ConnectivityManager nên phải tự huỷ đăng ký,
+        // nếu không callback sống lâu hơn Activity.
+        networkMonitor.stopMonitoring()
+        super.onDestroy()
+    }
 
-        // Chuyển hướng sang màn hình chính (Khám phá)
-        val intent = android.content.Intent(this, com.example.application_ai_assisstant.ui.discovery.DiscoveryActivity::class.java)
-        startActivity(intent)
-        finish()
+    private fun goToHome(model: LoggedInUserView) {
+        val welcome = getString(R.string.welcome)
+        Toast.makeText(applicationContext, "$welcome ${model.displayName}", Toast.LENGTH_LONG).show()
+        AppRouter.openHomeAfterLogin(this)
     }
 
     private fun showLoginFailed(@StringRes errorString: Int) {

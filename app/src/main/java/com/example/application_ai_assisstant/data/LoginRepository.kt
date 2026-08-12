@@ -1,5 +1,6 @@
 package com.example.application_ai_assisstant.data
 
+import com.example.application_ai_assisstant.data.local.SessionManager
 import com.example.application_ai_assisstant.data.model.LoggedInUser
 
 /**
@@ -24,6 +25,7 @@ class LoginRepository(val dataSource: LoginDataSource) {
 
     fun logout() {
         user = null
+        SessionManager.clear()
         dataSource.logout()
     }
 
@@ -40,7 +42,9 @@ class LoginRepository(val dataSource: LoginDataSource) {
 
     private fun setLoggedInUser(loggedInUser: LoggedInUser) {
         this.user = loggedInUser
-        // If user credentials will be cached in local storage, it is recommended it be encrypted
-        // @see https://developer.android.com/training/articles/keystore
+        // Đẩy lên state toàn cục để mọi màn hình đọc được và để phiên sống sót qua process death.
+        // Khi backend thật trả access token, gọi thêm SessionManager.saveToken(token) ở đây —
+        // ApiClient sẽ tự đính nó vào mọi request sau đó.
+        SessionManager.saveUser(loggedInUser)
     }
 }

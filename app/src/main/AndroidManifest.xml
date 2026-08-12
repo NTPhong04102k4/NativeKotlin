@@ -61,6 +61,7 @@
     <uses-feature android:name="android.hardware.telephony" android:required="false" />
 
     <application
+        android:name=".AiAssistantApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -129,17 +130,27 @@
         <activity
             android:name=".ui.personal.PersonalActivity"
             android:exported="false"
-            android:label="Cá nhân" />
+            android:label="@string/nav_personal"
+            android:launchMode="singleTop" />
 
         <activity
             android:name=".ui.discovery.DiscoveryActivity"
             android:exported="false"
-            android:label="Khám phá" />
+            android:label="@string/nav_discovery"
+            android:launchMode="singleTop" />
+
+        <!-- Màn chi tiết: push bình thường, KHÔNG singleTop vì mỗi lần mở là một item khác -->
+        <activity
+            android:name=".ui.discovery.DiscoveryDetailActivity"
+            android:exported="false"
+            android:label="@string/title_activity_discovery_detail"
+            android:parentActivityName=".ui.discovery.DiscoveryActivity" />
 
         <activity
             android:name=".ui.schedule.ScheduleActivity"
             android:exported="false"
-            android:label="Lịch trình" />
+            android:label="@string/nav_schedule"
+            android:launchMode="singleTop" />
     </application>
 
 </manifest>

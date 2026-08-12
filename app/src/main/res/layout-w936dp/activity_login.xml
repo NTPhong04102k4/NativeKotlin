@@ -77,7 +77,7 @@
                 style="@style/Button.Social"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Google"
+                android:text="@string/sign_in_google"
                 app:icon="@android:drawable/ic_menu_search"
                 app:iconGravity="textStart" />
 
@@ -87,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="Biometric"
+                android:text="@string/sign_in_biometric"
                 app:icon="@android:drawable/ic_lock_lock"
                 app:iconGravity="textStart" />
         </LinearLayout>
