@@ -77,6 +77,30 @@ không phải lý thuyết chung chung.
 | [TIO SDK](07-tich-hop/tio-sdk.md) | 📝 Khung tài liệu — **cần bổ sung thông tin nội bộ** |
 | [Native Bridge](07-tich-hop/native-bridge.md) | JS bridge, React Native TurboModule, Flutter channel, JNI, KMP |
 
+### 08 — Ôn tập phỏng vấn: Mobile Banking Native
+
+> ⚠️ **Mục này không mô tả repo.** Nó là tài liệu ôn phỏng vấn, viết bám vào kinh nghiệm cá nhân
+> (Flutter + GetX, ForgeRock bridge, WebAuthn, FCM, 3 flavor, app Eatsy + cân BLE) và ánh xạ sang
+> JD Mobile Banking. Code trong đó là code minh hoạ để luyện tay, **không chạy trong repo này**.
+
+| Trang | Nội dung |
+|---|---|
+| [Bản đồ JD + lộ trình 7 ngày](08-phong-van/README.md) | Sơ đồ kiến trúc tổng, luồng một phiên ngân hàng, 3 câu chắc chắn bị hỏi |
+| [IAM & ForgeRock](08-phong-van/01-iam-forgerock.md) | IAM/IAA/IGA, OAuth2 vs OIDC, PKCE, Journey/Node/Callback, vòng đời token, bridge |
+| [Biometric & WebAuthn](08-phong-van/02-biometric-webauthn.md) | `CryptoObject` vs callback boolean, key invalidation, passkey, assetlinks |
+| [FCM & Push](08-phong-van/03-fcm-push.md) | Data vs notification message, Push MFA, Doze/OEM, bảng chẩn đoán "push không tới" |
+| [WebSocket & realtime](08-phong-van/04-websocket.md) | Backoff + jitter, heartbeat, gắn lifecycle, STOMP, bảo mật |
+| [API & bảo mật](08-phong-van/05-api-bao-mat.md) | `Authenticator` single-flight refresh, idempotency key, cert pinning, ký request |
+| [SQLite & lưu trữ](08-phong-van/06-sqlite-luu-tru.md) | Room migration, SQLCipher, offline-first, tiền lưu bằng `Long` |
+| [Router & state](08-phong-van/07-router-state.md) | Intent flags, deeplink, process death, StateFlow vs LiveData vs GetX |
+| [Splash & Widget](08-phong-van/08-splash-widget.md) | SplashScreen API, chống splash 2 lần, widget ngân hàng che số dư |
+| [Modal · BottomSheet · Popup](08-phong-van/09-modal-popup.md) | Bảng chọn lớp phủ, 10 bẫy, chống double-submit, edge-to-edge API 35 |
+| [Flavor & Makefile](08-phong-van/10-flavor-makefile.md) | 3 flavor Android/iOS, Git flow, SIT/UAT/PROD, staged rollout, feature flag |
+| [Khó khăn thực tế (STAR)](08-phong-van/11-kho-khan-thuc-te.md) | 10 câu chuyện kể được: ForgeRock treo, Google Sign-In, Face ID, BLE, ANR |
+| [Key concepts & Q&A](08-phong-van/12-key-concepts.md) | Kiến thức nền bắt buộc + 24 câu hỏi có đáp án + checklist đêm trước |
+| [Bluetooth — cân Eatsy](08-phong-van/13-bluetooth-eatsy.md) | GATT queue, CCCD, status 133, little-endian, `callbackFlow` |
+| [Flutter bridge & GetX](08-phong-van/14-flutter-bridge-getx.md) | MethodChannel/EventChannel/Pigeon, bảng chuyển đổi GetX ↔ MVVM |
+
 ## Bối cảnh dự án (tóm tắt)
 
 - Android thuần Kotlin, **XML + ViewBinding**, không Compose, không Navigation Component.
