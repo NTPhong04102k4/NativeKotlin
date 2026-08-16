@@ -1,0 +1,92 @@
+name: CI
+
+# Không dùng bộ lọc `paths:` một cách cố ý.
+# Nếu lọc theo path, một PR chỉ sửa docs/ sẽ không kích hoạt workflow → status check
+# không bao giờ chạy → ruleset treo vĩnh viễn ở "Expected — waiting for status"
+# và PR đó không thể merge được.
+on:
+  pull_request:
+    branches: [main, staging, dev]
+  push:
+    branches: [main, staging, dev]
+
+permissions:
+  contents: read
+
+# Huỷ run cũ khi push liên tiếp vào cùng một branch/PR để đỡ tốn phút CI.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Tên của 3 job dưới đây chính là tên status check hiện ra trong ruleset:
+  # "build", "test", "lint".
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      # java-version phải khớp toolchainVersion=21 trong gradle/gradle-daemon-jvm.properties,
+      # nếu lệch Gradle sẽ tải JDK khác qua foojay, làm build chậm hẳn.
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - run: ./gradlew assembleDebug
+
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - run: ./gradlew testDebugUnitTest
+
+      - name: Tải lên báo cáo test khi lỗi
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: app/build/reports/tests/
+          if-no-files-found: ignore
+
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      # lint.xml ở thư mục gốc đẩy HardcodedText / MissingPermission / StaticFieldLeak /
+      # HandlerLeak lên severity="error", nên task này fail khi vi phạm.
+      - run: ./gradlew lintDebug
+
+      # always() chứ không phải failure(): báo cáo còn dùng để soi 144 warning hiện có,
+      # không chỉ để xem lúc đỏ.
+      - name: Tải lên báo cáo lint
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-report
+          path: app/build/reports/lint-results-debug.html
+          if-no-files-found: ignore

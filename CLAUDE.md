@@ -38,6 +38,14 @@ Single unit test:
 Only the two IDE-generated sample tests exist (`ExampleUnitTest`, `ExampleInstrumentedTest`); there is no real test
 coverage to extend yet.
 
+### CI
+
+`.github/workflows/ci.yml` runs three parallel jobs — `build` (`assembleDebug`), `test`
+(`testDebugUnitTest`), `lint` (`lintDebug`) — on push and PR against `main` / `staging` / `dev`. The job names are
+the GitHub status-check names used by the branch rulesets, so renaming a job silently breaks branch protection.
+Deliberately no `paths:` filter: a filtered-out PR never reports a status and hangs forever on "Expected — waiting
+for status". Design notes in `docs/superpowers/specs/2026-08-16-ci-status-checks-design.md`.
+
 ### Build status
 
 The two resource-processing failures that used to block every build (`@style/MultiSelectChip` undefined;
@@ -186,9 +194,13 @@ inline "Cá nhân" / "Khám phá" / "Lịch trình". Keep it that way.
 `LoginActivity` routes its Toasts through `getString(...)`; the one remaining literal is the IDE-template Snackbar in
 `ScrollingActivity.kt:24` ("Replace with your own action"), in a screen nothing launches.
 
-**No Lint report has been produced yet, so the error-severity list above is still unverified against the tree.**
+The error-severity list above is **verified**: `:app:lintDebug` passes at `0 errors, 144 warnings`.
 `:app:lint` depends on `compileDebugKotlin`, so any Kotlin compile error blocks it — check `assembleDebug` passes
 before assuming a lint failure is a lint problem. Report lands at `app/build/reports/lint-results-debug.html`.
+
+Note the root element of `lint.xml` must be `<lint>`. It was `<resources>` until 2026-08-16, which made lint discard
+the whole file (`Unsupported tag <resources>` in the report) and silently enforce none of the four error promotions.
+If lint ever starts passing suspiciously cleanly, check that tag first.
 
 There is also a design-system note buried in `res/values/styles.xml`: named styles (`Text.Heading1`,
 `Button.Primary`, `Button.Social`, `InputField`, `Container.Card`, `ListItem`, `ShapeAppearance.App.*`) already exist
