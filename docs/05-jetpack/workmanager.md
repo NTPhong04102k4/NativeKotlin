@@ -27,8 +27,8 @@ class SyncScheduleWorker(
         return try {
             val repository = ServiceLocator.scheduleRepository(applicationContext)
             when (repository.refresh()) {
-                is com.example.application_ai_assisstant.data.Result.Success -> Result.success()
-                is com.example.application_ai_assisstant.data.Result.Error   -> Result.retry()
+                is com.ntp.application_ai_assisstant.data.Result.Success -> Result.success()
+                is com.ntp.application_ai_assisstant.data.Result.Error   -> Result.retry()
             }
         } catch (e: IOException) {
             Result.retry()        // lỗi tạm thời -> thử lại
@@ -43,7 +43,7 @@ class SyncScheduleWorker(
 > che khuất `kotlin.Result`. Trong Worker có tới ba `Result` khác nhau. Import tường minh hoặc đặt
 > alias:
 > ```kotlin
-> import com.example.application_ai_assisstant.data.Result as DataResult
+> import com.ntp.application_ai_assisstant.data.Result as DataResult
 > ```
 
 Ba giá trị trả về:
@@ -215,7 +215,7 @@ Khi có Room, chạy `refresh()` định kỳ để app mở ra là có dữ li�
 adb shell dumpsys jobscheduler | Select-String "application_ai_assisstant"
 
 # Ép chạy job ngay (cần job id từ lệnh trên)
-adb shell cmd jobscheduler run -f com.example.application_ai_assisstant <jobId>
+adb shell cmd jobscheduler run -f com.ntp.application_ai_assisstant <jobId>
 ```
 
 Trong unit test dùng `androidx.work:work-testing` với `TestListenableWorkerBuilder`.

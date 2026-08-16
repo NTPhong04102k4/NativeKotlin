@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.application_ai_assisstant"
+    namespace = "com.ntp.application_ai_assisstant"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -11,7 +11,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.application_ai_assisstant"
+        applicationId = "com.ntp.application_ai_assisstant"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

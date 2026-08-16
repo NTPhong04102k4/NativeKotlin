@@ -144,12 +144,12 @@ thư mục Documents của app chính. Phải bật **App Group** ở cả hai t
 
 ```
 Signing & Capabilities → + Capability → App Groups
-→ group.com.example.aiassistant
+→ group.com.ntp.aiassistant
 ```
 
 ```swift
 enum SharedStore {
-    static let suiteName = "group.com.example.aiassistant"
+    static let suiteName = "group.com.ntp.aiassistant"
 
     static var defaults: UserDefaults {
         UserDefaults(suiteName: suiteName)!

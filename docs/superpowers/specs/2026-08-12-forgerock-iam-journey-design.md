@@ -61,7 +61,7 @@ bằng chứng cho các quyết định ở §2.
 :app  ──depends──▶  :forgerock-journey  ──▶  org.forgerock:forgerock-auth:4.6.0
 ```
 
-`:forgerock-journey` (namespace `com.example.forgerock.journey`, `com.android.library`, minSdk 24):
+`:forgerock-journey` (namespace `com.ntp.forgerock.journey`, `com.android.library`, minSdk 24):
 
 **Bất biến cứng — vi phạm là hỏng mục đích của module:**
 - Không `Activity`, không `Fragment`, không `View`, không import `androidx.appcompat.*`.

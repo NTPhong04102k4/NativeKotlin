@@ -55,7 +55,7 @@ Thiếu `awaitClose` là nguồn rò rỉ số một khi tích hợp SDK.
 ### 4. `Result` là của dự án, không phải `kotlin.Result`
 
 ```kotlin
-import com.example.application_ai_assisstant.data.Result
+import com.ntp.application_ai_assisstant.data.Result
 ```
 
 `data/Result.kt` che khuất `kotlin.Result`. Thêm WorkManager vào là có ba `Result` khác nhau cùng

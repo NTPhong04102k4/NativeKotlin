@@ -75,7 +75,7 @@ Không cần chờ hệ thống tự làm:
 
 ```powershell
 # Đưa app xuống background trước, rồi:
-adb shell am kill com.example.application_ai_assisstant
+adb shell am kill com.ntp.application_ai_assisstant
 ```
 
 Mở lại app từ recents — nếu màn hình trắng, crash, hoặc mất dữ liệu thì đang thiếu xử lý.

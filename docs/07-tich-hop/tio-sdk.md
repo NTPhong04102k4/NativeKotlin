@@ -178,7 +178,7 @@ class TioDataSource {
 
 Hai điểm bắt buộc:
 
-- **`Result` là `com.example.application_ai_assisstant.data.Result`**, không phải `kotlin.Result` —
+- **`Result` là `com.ntp.application_ai_assisstant.data.Result`**, không phải `kotlin.Result` —
   import tường minh, xem [Repository Pattern §3](../01-kien-truc/repository-pattern.md#3-result--bọc-thành-côngthất-bại)
 - **`awaitClose` phải huỷ đăng ký listener.** Đây là nguồn rò rỉ số một khi tích hợp SDK
 

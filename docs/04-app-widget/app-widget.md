@@ -112,7 +112,7 @@ views.setInt(R.id.root, "setBackgroundColor", Color.WHITE)
     android:minHeight="40dp"
     android:updatePeriodMillis="86400000"
     android:initialLayout="@layout/a_i__assistant"
-    android:configure="com.example...AI_AssistantConfigureActivity"
+    android:configure="com.ntp...AI_AssistantConfigureActivity"
     android:previewImage="@drawable/example_appwidget_preview"
     android:resizeMode="horizontal|vertical"
     android:widgetCategory="home_screen" />

@@ -54,7 +54,7 @@ Cần trước khi viết code:
 3. Khai báo **package name** và **SHA256 của keystore** — Tuya khớp cả hai, sai là SDK từ chối
    khởi tạo
 
-> ⚠️ Package name của dự án là `com.example.application_ai_assisstant` (có lỗi chính tả cố ý —
+> ⚠️ Package name của dự án là `com.ntp.application_ai_assisstant` (có lỗi chính tả cố ý —
 > `CLAUDE.md` yêu cầu giữ nguyên). Khai báo trên Tuya **phải khớp chính xác**, kể cả lỗi chính tả.
 >
 > SHA256 khác nhau giữa debug và release → phải khai báo **cả hai**.

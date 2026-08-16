@@ -93,7 +93,7 @@ sealed class Result<out T : Any> {
 > ⚠️ **Bẫy:** lớp này **che khuất `kotlin.Result`** của thư viện chuẩn. Ở bất cứ file nào dùng nó,
 > phải import tường minh:
 > ```kotlin
-> import com.example.application_ai_assisstant.data.Result
+> import com.ntp.application_ai_assisstant.data.Result
 > ```
 > Quên import là lấy nhầm `kotlin.Result` và gặp lỗi biên dịch khó hiểu.
 

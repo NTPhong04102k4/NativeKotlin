@@ -10,7 +10,7 @@ Single Gradle module `:app`. Gradle 9.4.1 / AGP 9.2.1 / minSdk 24 / targetSdk 36
 Fragments are avoided everywhere except `SettingsActivity`, which hosts a `PreferenceFragmentCompat`
 (`SettingsActivity.SettingsFragment` → `res/xml/root_preferences.xml`) — the one framework-mandated exception.
 
-Namespace and applicationId: `com.example.application_ai_assisstant` — the misspelling ("Assisstant") is baked into the
+Namespace and applicationId: `com.ntp.application_ai_assisstant` — the misspelling ("Assisstant") is baked into the
 package name, `rootProject.name`, generated binding classes, and theme names. Keep it; do not "fix" it.
 
 Code comments, log messages, and user-facing strings are written in **Vietnamese**. Match that when editing.
@@ -31,7 +31,7 @@ Run from the repo root. On Windows/PowerShell use `.\gradlew.bat`; the Makefile 
 Single unit test:
 
 ```powershell
-.\gradlew.bat :app:testDebugUnitTest --tests "com.example.application_ai_assisstant.ExampleUnitTest"
+.\gradlew.bat :app:testDebugUnitTest --tests "com.ntp.application_ai_assisstant.ExampleUnitTest"
 .\gradlew.bat :app:testDebugUnitTest --tests "*.ExampleUnitTest.addition_isCorrect"
 ```
 
@@ -130,7 +130,7 @@ State is exposed as `LiveData` (`loginFormState`, `loginResult`) observed in the
 `LoginFormState` / `LoginResult` / `LoggedInUserView` (string-resource IDs for errors, not messages).
 
 `data/Result.kt` defines a project-local sealed `Result<T>` that **shadows `kotlin.Result`** — always
-`import com.example.application_ai_assisstant.data.Result` where you use it.
+`import com.ntp.application_ai_assisstant.data.Result` where you use it.
 
 `Discovery`, `Schedule`, and `Personal` are scaffolds: inflate binding, wire bottom nav, `// TODO`. `Personal`
 additionally hooks `tvSettings` / `btnLogout` to `AppRouter.openSettings` / `AppRouter.logout`. Their layouts

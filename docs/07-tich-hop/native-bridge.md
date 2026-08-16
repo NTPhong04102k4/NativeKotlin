@@ -115,7 +115,7 @@ reactApplicationContext
 
 ```dart
 // Dart
-const channel = MethodChannel('com.example.aiassistant/biometric');
+const channel = MethodChannel('com.ntp.aiassistant/biometric');
 
 final available = await channel.invokeMethod<bool>('isAvailable') ?? false;
 ```
@@ -142,7 +142,7 @@ class MainActivity : FlutterActivity() {
                 }
             }
     }
-    companion object { private const val CHANNEL = "com.example.aiassistant/biometric" }
+    companion object { private const val CHANNEL = "com.ntp.aiassistant/biometric" }
 }
 ```
 
