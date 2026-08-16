@@ -8,6 +8,6 @@ import com.ntp.application_ai_assisstant.util.NotificationHelper
 class AlarmReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         val notificationHelper = NotificationHelper(context)
-        notificationHelper.showNotification("Báo thức", "Đã đến giờ hẹn!")
+        notificationHelper.showNotification("Báo thức123", "Đã đến giờ hẹn!")
     }
 }

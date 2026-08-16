@@ -13,4 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
-"docs/app_release" 
+docs/app_release
