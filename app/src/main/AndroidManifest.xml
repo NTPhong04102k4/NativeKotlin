@@ -56,11 +56,13 @@
 
     <!-- Quyền Sinh trắc học -->
     <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove"/>
 
     <uses-feature android:name="android.hardware.bluetooth" android:required="false" />
     <uses-feature android:name="android.hardware.telephony" android:required="false" />
 
     <application
+        android:name=".AiAssistantApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -69,6 +71,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Application_AI_Assisstant">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true"
@@ -129,17 +133,41 @@
         <activity
             android:name=".ui.personal.PersonalActivity"
             android:exported="false"
-            android:label="Cá nhân" />
+            android:label="@string/nav_personal"
+            android:launchMode="singleTop" />
 
         <activity
             android:name=".ui.discovery.DiscoveryActivity"
             android:exported="false"
-            android:label="Khám phá" />
+            android:label="@string/nav_discovery"
+            android:launchMode="singleTop" />
+
+        <!-- Màn chi tiết: push bình thường, KHÔNG singleTop vì mỗi lần mở là một item khác -->
+        <activity
+            android:name=".ui.discovery.DiscoveryDetailActivity"
+            android:exported="false"
+            android:label="@string/title_activity_discovery_detail"
+            android:parentActivityName=".ui.discovery.DiscoveryActivity" />
 
         <activity
             android:name=".ui.schedule.ScheduleActivity"
             android:exported="false"
-            android:label="Lịch trình" />
+            android:label="@string/nav_schedule"
+            android:launchMode="singleTop" />
+        <activity android:name="com.facebook.FacebookActivity"
+            android:exported="false"
+
+            android:configChanges=
+            "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+        android:label="@string/app_name" />
+        <activity android:name="com.facebook.CustomTabActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

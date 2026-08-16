@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<lint>
     <!-- 1. KHÔNG cho phép hardcode chuỗi chữ (Bắt buộc dùng strings.xml để dễ quản lý) -->
     <issue id="HardcodedText" severity="error" />
 
@@ -16,4 +16,4 @@
 
     <!-- 5. TỐI ƯU: Phát hiện các resource (ảnh, màu) thừa không dùng tới để giảm dung lượng file APK -->
     <issue id="UnusedResources" severity="warning" />
-</resources>
+</lint>

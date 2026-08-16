@@ -104,6 +104,17 @@
         <item name="android:gravity">center_vertical</item>
     </style>
 
+    <!-- M3 Chip Styles -->
+    <style name="MultiSelectChip" parent="Widget.Material3.Chip.Filter">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="chipBackgroundColor">@color/background_secondary</item>
+        <item name="chipStrokeColor">@color/divider</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="checkedIconTint">@color/primary_500</item>
+        <item name="chipIconTint">@color/text_secondary</item>
+        <item name="android:checkable">true</item>
+    </style>
+
     <!-- M3 Shapes -->
     <style name="ShapeAppearance.App.Input" parent="ShapeAppearance.Material3.SmallComponent">
         <item name="cornerSize">@dimen/input_corner_radius</item>

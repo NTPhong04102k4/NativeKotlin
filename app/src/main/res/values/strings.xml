@@ -10,6 +10,58 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
+
+    <!-- Bottom navigation: dùng chung cho menu và android:label của Activity -->
+    <string name="nav_discovery">Khám phá</string>
+    <string name="nav_schedule">Lịch trình</string>
+    <string name="nav_personal">Cá nhân</string>
+
+    <!-- Màn hình đăng nhập -->
+    <string name="network_lost">Mất kết nối mạng!</string>
+    <string name="google_connecting">Đang kết nối Google…</string>
+    <string name="biometric_title">Xác thực</string>
+    <string name="biometric_subtitle">Sử dụng vân tay hoặc khuôn mặt</string>
+    <string name="biometric_user">Người dùng Sinh trắc học</string>
+
+    <string name="app_display_name">AI Assistant</string>
+    <string name="divider_or">OR</string>
+    <string name="sign_in_google">Google</string>
+    <string name="sign_in_biometric">Biometric</string>
+
+    <!-- Màn hình Khám phá -->
+    <string name="discovery_title">Khám phá AI</string>
+    <string name="search_hint">Tìm kiếm tính năng, bài viết…</string>
+    <string name="discovery_empty">Không tìm thấy nội dung phù hợp</string>
+    <string name="discovery_card_footer">%1$d phút đọc • %2$s</string>
+    <string name="title_activity_discovery_detail">Chi tiết</string>
+
+    <!-- Thông báo lỗi dùng chung -->
+    <string name="error_network">Không có kết nối mạng. Vui lòng kiểm tra lại.</string>
+    <string name="error_server">Máy chủ đang gặp sự cố. Vui lòng thử lại sau.</string>
+    <string name="error_unauthorized">Phiên đăng nhập đã hết hạn.</string>
+    <string name="error_unknown">Đã xảy ra lỗi không xác định.</string>
+    <string name="action_retry">Thử lại</string>
+
+    <!-- Màn hình Lịch trình -->
+    <string name="section_today_events">SỰ KIỆN TRONG NGÀY</string>
+    <string name="action_add_schedule">Thêm lịch trình</string>
+    <string name="schedule_title">Lịch trình cá nhân</string>
+    <string name="schedule_empty">Không có sự kiện nào trong ngày này</string>
+
+    <!-- Màn hình Cá nhân -->
+    <string name="section_account">TÀI KHOẢN</string>
+    <string name="section_app">ỨNG DỤNG</string>
+    <string name="action_edit_profile">Chỉnh sửa thông tin</string>
+    <string name="action_privacy">Bảo mật &amp; Quyền riêng tư</string>
+    <string name="action_system_settings">Cài đặt hệ thống</string>
+    <string name="action_about">Về AI Assistant</string>
+    <string name="action_logout">Đăng xuất</string>
+    <string name="personal_guest">Khách</string>
+    <string name="personal_user_id">ID: %1$s</string>
+    <string name="filter_all">Tất cả</string>
+    <string name="filter_technology">Công nghệ</string>
+    <string name="filter_health">Sức khỏe</string>
+    <string name="filter_life">Đời sống</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -120,4 +172,8 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="logo_brand">logo</string>
+    <string name="facebook_app_id">31580898284887499</string>
+    <string name="fb_login_protocol_scheme">fb31580898284887499</string>
+    <string name="facebook_client_token">2ec7a4a78f9858b2d39e6cce668ae910</string>
 </resources>
