@@ -172,4 +172,8 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="logo_brand">logo</string>
+    <string name="facebook_app_id">31580898284887499</string>
+    <string name="fb_login_protocol_scheme">fb31580898284887499</string>
+    <string name="facebook_client_token">2ec7a4a78f9858b2d39e6cce668ae910</string>
 </resources>
